@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Mai&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0A0A0A;
+    --ink: #EDEDED;
+    --ink-dim: #7A7A7A;
+    --line: #232323;
+    --gold: #C9A86A;
+    --calligraphy: 'Yuji Mai', serif;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Inter', sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--ink); text-decoration:none; }
+  a:hover{ color:var(--gold); }
+  a:focus-visible, button:focus-visible{ outline:1px solid var(--gold); outline-offset:4px; }
+
+  .eyebrow{
+    font-family:var(--sans);
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.68rem;
+    color:var(--ink-dim);
+  }
+
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:2rem clamp(1.5rem,5vw,4rem);
+  }
+  nav .brand{ font-family:var(--calligraphy); font-size:1.4rem; letter-spacing:0.02em; }
+  nav .links{ display:flex; gap:2.2rem; }
+  nav .links a{ font-size:0.75rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-dim); }
+
+  .hero{
+    min-height:78vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 3rem 1.5rem;
+    position:relative;
+  }
+  .hero .eyebrow{ margin-bottom:1.6rem; }
+  .hero h1{
+    font-family:var(--calligraphy);
+    font-weight:400;
+    font-size:clamp(3.2rem, 11vw, 7.5rem);
+    line-height:1;
+    margin:0;
+    color:var(--ink);
+  }
+  .hero p.dek{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.3rem;
+    color:var(--ink-dim);
+    max-width:36ch;
+    margin:2rem 0 0;
+  }
+
+  .stroke{
+    width:1px;
+    height:70px;
+    background:linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin:3rem auto 0;
+    opacity:0.6;
+  }
+
+  section{
+    padding: clamp(3rem,8vh,6rem) clamp(1.5rem,5vw,4rem);
+    border-top:1px solid var(--line);
+  }
+  .section-head{
+    text-align:center;
+    margin-bottom:3rem;
+  }
+  .section-head .eyebrow{ margin-bottom:0.8rem; }
+  .section-head h2{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:2rem;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:2.5rem;
+    max-width:1000px;
+    margin:0 auto;
+  }
+  .card{
+    text-align:center;
+    padding:1.5rem 1rem;
+  }
+  .card .num{
+    font-family:var(--calligraphy);
+    font-size:1.6rem;
+    color:var(--gold);
+    display:block;
+    margin-bottom:0.8rem;
+  }
+  .card h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.2rem;
+    margin:0 0 0.6rem;
+  }
+  .card p{
+    color:var(--ink-dim);
+    font-size:0.92rem;
+    margin:0;
+  }
+
+  .quote{
+    max-width:640px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .quote p{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.5;
+    color:var(--ink);
+  }
+  .quote span{
+    display:block;
+    margin-top:1.2rem;
+    font-family:var(--sans);
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+
+  .contact{ text-align:center; }
+  .contact .links{
+    display:flex;
+    justify-content:center;
+    gap:2.5rem;
+    flex-wrap:wrap;
+    margin-top:1.5rem;
+  }
+  .contact .links a{
+    font-size:0.8rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    border-bottom:1px solid transparent;
+    padding-bottom:0.2rem;
+  }
+  .contact .links a:hover{ border-color:var(--gold); }
+
+  footer{
+    padding:2rem;
+    text-align:center;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:560px){
+    nav .links{ gap:1.2rem; }
+    nav .links a{ font-size:0.65rem; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">名</div>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="eyebrow">Portfolio &amp; Practice</div>
+    <h1>Siddhartha</h1>
+    <p class="dek">A quiet space for work, thought, and the things in between.</p>
+    <div class="stroke"></div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <div class="eyebrow">Selected</div>
+      <h2>Work</h2>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <span class="num">一</span>
+        <h3>Project One</h3>
+        <p>A short line describing what this project is and why it matters.</p>
+      </div>
+      <div class="card">
+        <span class="num">二</span>
+        <h3>Project Two</h3>
+        <p>A short line describing what this project is and why it matters.</p>
+      </div>
+      <div class="card">
+        <span class="num">三</span>
+        <h3>Project Three</h3>
+        <p>A short line describing what this project is and why it matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="quote">
+      <p>&ldquo;Placeholder line for a guiding thought, a quote, or a personal note that sets the tone.&rdquo;</p>
+      <span>— Source, Year</span>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="section-head">
+      <div class="eyebrow">Reach</div>
+      <h2>Contact</h2>
+    </div>
+    <div class="links">
+      <a href="#">Email</a>
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>© 2026 — Built by hand</footer>
+
+</body>
+</html>
