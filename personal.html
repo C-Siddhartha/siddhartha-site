@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siddhartha — Personal / Observations</title>
+<meta name="description" content="Observations, articles, and long-form writing by Siddhartha — on craft, precision, and practice.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='22' y='22' width='56' height='56' fill='none' stroke='%23F2A33C' stroke-width='6'/><text x='50' y='66' font-size='40' text-anchor='middle' fill='%23F2A33C'>匠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ————————————————————————————————————————————————————————
+   PERSONAL — the reading room
+   Same system as the workshop: black ground, amber and ember
+   drawn from the inferno ramp, white for reading, all measures
+   from φ. The added vocabulary is borrowed from the sword-
+   smith's bench: the hamon (the visible temper line of a
+   blade — a heat-treatment gradient you can hold) replaces
+   hairline rules; category seals sit where catalog IDs sat;
+   a vertical kakemono column carries 守破離 — obey, break,
+   transcend — the three stages of mastering a form.
+———————————————————————————————————————————————————————— */
+:root{
+  --phi: 1.618;
+  --black: #000000;
+  --white: #F5F3EE;
+  --white-dim: rgba(245,243,238,0.55);
+  --white-faint: rgba(245,243,238,0.28);
+  --accent: #F2A33C;
+  --accent-bright: #FFC46B;
+  --accent-deep: #8C4A17;
+  --ember: #DD513A;
+  --line: rgba(242,163,60,0.20);
+  --line-strong: rgba(242,163,60,0.45);
+
+  --fs-0: 0.6875rem;
+  --fs-1: 1.125rem;
+  --fs-2: 1.8125rem;
+  --fs-3: 2.9375rem;
+  --fs-4: 4.75rem;
+  --fs-5: 7.6875rem;
+
+  --s-1: 8px;  --s-2: 13px; --s-3: 21px; --s-4: 34px;
+  --s-5: 55px; --s-6: 89px; --s-7: 144px; --s-8: 233px;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', 'SF Mono', monospace;
+  --jp: 'Noto Serif JP', serif;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --maxw: 1440px;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:var(--fs-1);
+  line-height:var(--phi);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--accent); color:var(--black); }
+a{ color:inherit; text-decoration:none; }
+
+/* ————— Navigation ————— */
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding:var(--s-4) var(--s-5);
+  background:linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0));
+}
+.wordmark{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size:var(--fs-2); color:var(--white);
+}
+.wordmark em{ color:var(--accent); font-style:italic; }
+nav ul{ list-style:none; display:flex; gap:var(--s-5); }
+nav ul a{
+  font-family:var(--mono); font-size:var(--fs-0);
+  letter-spacing:0.22em; text-transform:uppercase;
+  color:var(--white-dim); position:relative; padding-bottom:4px;
+  transition:color 0.4s var(--ease);
+}
+nav ul a::after{
+  content:''; position:absolute; left:0; bottom:0; height:1px; width:100%;
+  background:var(--accent); transform:scaleX(0); transform-origin:right;
+  transition:transform 0.5s var(--ease);
+}
+nav ul a:hover, nav ul a.here{ color:var(--accent-bright); }
+nav ul a:hover::after, nav ul a.here::after{ transform:scaleX(1); transform-origin:left; }
+nav ul a:focus-visible{ outline:1px solid var(--accent); outline-offset:4px; }
+
+/* ————— Hero / reading room entrance ————— */
+.hero{
+  min-height:70vh; position:relative;
+  display:flex; align-items:flex-end;
+  padding:var(--s-8) var(--s-5) var(--s-6);
+  max-width:var(--maxw); margin:0 auto;
+}
+.hero-copy{ max-width:61.8%; }
+.hero .eyebrow{
+  font-family:var(--mono); font-size:var(--fs-0);
+  letter-spacing:0.32em; text-transform:uppercase; color:var(--accent);
+  margin-bottom:var(--s-3);
+}
+.hero h1{
+  font-family:var(--serif); font-weight:300;
+  font-size:clamp(2.8rem, 7vw, var(--fs-4));
+  line-height:1.08; letter-spacing:-0.01em;
+}
+.hero h1 em{ font-style:italic; color:var(--accent-bright); }
+.hero .sub{
+  margin-top:var(--s-4); max-width:52ch; color:var(--white-dim);
+}
+
+/* kakemono — hanging vertical column, 守破離 */
+.kakemono{
+  position:absolute; right:var(--s-6); top:38.2%;
+  transform:translateY(-38.2%);
+  display:flex; flex-direction:column; align-items:center; gap:var(--s-3);
+}
+.kakemono .glyphs{
+  writing-mode:vertical-rl; text-orientation:upright;
+  font-family:var(--jp); font-weight:300;
+  font-size:clamp(2.6rem, 5vw, var(--fs-4));
+  color:var(--accent); opacity:0.34;
+  letter-spacing:0.35em; line-height:1;
+}
+.kakemono .caption{
+  font-family:var(--mono); font-size:var(--fs-0);
+  letter-spacing:0.22em; text-transform:uppercase; color:var(--white-faint);
+  writing-mode:horizontal-tb; text-align:center; max-width:16ch; line-height:2;
+}
+.kakemono::before, .kakemono::after{
+  content:''; width:1px; height:34px;
+  background:linear-gradient(var(--line-strong), transparent);
+}
+.kakemono::after{ background:linear-gradient(transparent, var(--line-strong)); }
+
+/* ————— hamon dividers ————— */
+.hamon{
+  display:block; width:100%; height:21px;
+  color:var(--accent); opacity:0.30;
+}
+.hamon path{ stroke:currentColor; stroke-width:1; fill:none; }
+
+/* ————— Essays ————— */
+section{ position:relative; padding:var(--s-6) 0 var(--s-8); }
+.shell{ max-width:var(--maxw); margin:0 auto; padding:0 var(--s-5); }
+.sec-head{
+  display:grid; grid-template-columns:38.2% 61.8%;
+  align-items:end; margin-bottom:var(--s-5); padding-bottom:var(--s-4);
+}
+.sec-head .kicker{
+  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.32em;
+  text-transform:uppercase; color:var(--accent);
+}
+.sec-head h2{ font-family:var(--serif); font-weight:300; font-size:var(--fs-3); line-height:1.1; }
+.sec-head h2 em{ font-style:italic; color:var(--accent-bright); }
+
+.reveal{ opacity:0; transform:translateY(34px); transition:opacity 1.1s var(--ease), transform 1.1s var(--ease); }
+.reveal.in{ opacity:1; transform:none; }
+
+.essay{
+  display:grid; grid-template-columns:38.2% 61.8%;
+  padding:var(--s-5) 0;
+}
+.essay-meta{
+  display:flex; gap:var(--s-4); align-items:flex-start;
+  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--white-faint); line-height:2.4;
+}
+/* the category seal — a carved square, pressed on hover */
+.seal{
+  flex:none; width:55px; height:55px;
+  border:1px solid var(--line-strong);
+  display:grid; place-items:center;
+  font-family:var(--jp); font-weight:400; font-size:1.5rem;
+  color:var(--accent); line-height:1;
+  transition:transform 0.4s var(--ease), border-color 0.4s var(--ease),
+             background 0.4s var(--ease), color 0.4s var(--ease);
+}
+.essay:hover .seal{
+  transform:scale(0.94) rotate(-2deg);
+  border-color:var(--accent);
+  background:rgba(242,163,60,0.10);
+  color:var(--accent-bright);
+}
+.essay-meta .when{ padding-top:2px; }
+.essay h3{
+  font-family:var(--serif); font-weight:300; font-style:italic;
+  font-size:var(--fs-2); line-height:1.25; margin-bottom:var(--s-3);
+  transition:color 0.4s var(--ease);
+}
+.essay:hover h3{ color:var(--accent-bright); }
+.essay p{ color:var(--white-dim); max-width:62ch; }
+.essay .read{
+  display:inline-block; margin-top:var(--s-3);
+  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--accent); position:relative; padding-bottom:3px;
+}
+.essay .read::after{
+  content:''; position:absolute; left:0; bottom:0; width:100%; height:1px;
+  background:var(--accent); transform:scaleX(0); transform-origin:right;
+  transition:transform 0.5s var(--ease);
+}
+.essay .read:hover::after{ transform:scaleX(1); transform-origin:left; }
+
+/* ————— Contact / Footer ————— */
+footer{
+  position:relative; padding:var(--s-8) 0 var(--s-5);
+  border-top:1px solid var(--line);
+}
+footer .kicker{
+  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.32em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:var(--s-4);
+}
+.email{
+  font-family:var(--serif); font-weight:300; font-style:italic;
+  font-size:clamp(2rem, 6vw, var(--fs-4)); line-height:1.1;
+  color:var(--white); display:inline-block; position:relative;
+  cursor:pointer; background:none; border:0; padding:0 0 var(--s-2);
+  transition:color 0.5s var(--ease);
+}
+.email::after{
+  content:''; position:absolute; left:0; bottom:0; height:1px; width:100%;
+  background:var(--accent); transform:scaleX(0); transform-origin:right;
+  transition:transform 0.7s var(--ease);
+}
+.email:hover{ color:var(--accent-bright); }
+.email:hover::after{ transform:scaleX(1); transform-origin:left; }
+.email:focus-visible{ outline:1px solid var(--accent); outline-offset:8px; }
+.copied{
+  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.22em;
+  color:var(--accent); text-transform:uppercase; margin-left:var(--s-4);
+  opacity:0; transition:opacity 0.4s var(--ease);
+}
+.copied.show{ opacity:1; }
+.foot-row{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:var(--s-7); flex-wrap:wrap; gap:var(--s-3);
+  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--white-faint);
+}
+.foot-row .sig{
+  display:inline-flex; align-items:center; gap:var(--s-3);
+  font-family:var(--serif); font-style:italic; font-size:var(--fs-1);
+  letter-spacing:0.02em; text-transform:none; color:var(--white-dim);
+}
+.foot-row .sig em{ color:var(--accent); }
+.foot-row .sig .seal{ width:34px; height:34px; font-size:1rem; }
+
+/* ————— Responsive ————— */
+@media (max-width: 900px){
+  :root{ --fs-3: 2.2rem; --fs-2: 1.5rem; }
+  nav{ padding:var(--s-3) var(--s-3); }
+  nav ul{ gap:var(--s-3); }
+  .shell{ padding:0 var(--s-3); }
+  .hero{ padding:var(--s-8) var(--s-3) var(--s-5); }
+  .hero-copy{ max-width:100%; }
+  .kakemono{ display:none; }
+  .sec-head, .essay{ grid-template-columns:1fr; }
+  .sec-head .kicker{ margin-bottom:var(--s-2); }
+  .essay-meta{ margin-bottom:var(--s-3); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="index.html">Siddhartha<em>.</em></a>
+  <ul>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a class="here" href="#" aria-current="page">Personal</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ——————————— HERO ——————————— -->
+<header class="hero">
+  <div class="hero-copy reveal in">
+    <p class="eyebrow">Personal / Observations</p>
+    <h1>The blade remembers <em>the fire</em>.</h1>
+    <p class="sub">A smith folds steel until the metal keeps a record of its own making — and the temper line stays visible on the finished edge. These are notes in that spirit: on craft, precision, and practice, with the working left showing.</p>
+  </div>
+  <aside class="kakemono" aria-hidden="true">
+    <span class="glyphs">守破離</span>
+    <span class="caption">shu · ha · ri — obey the form, break the form, leave the form</span>
+  </aside>
+</header>
+
+<svg class="hamon" viewBox="0 0 800 21" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 13 C 30 6, 55 17, 90 11 S 150 4 190 13 S 260 18 300 9 S 370 4 410 14 S 480 17 520 8 S 590 5 630 13 S 710 17 750 9 L 800 12"/>
+</svg>
+
+<!-- ——————————— OBSERVATIONS ——————————— -->
+<section id="observations">
+  <div class="shell">
+    <div class="sec-head reveal">
+      <p class="kicker">Six entries · newest first</p>
+      <h2>Notes from the <em>test bench</em>.</h2>
+    </div>
+
+    <article class="essay reveal">
+      <div class="essay-meta">
+        <span class="seal" aria-hidden="true">差</span>
+        <span class="when">Jun 2026<br>Essay</span>
+      </div>
+      <div>
+        <h3>On tolerances</h3>
+        <p>Nothing is built to a dimension; everything is built to a range. What machining taught me about software estimates, design systems, and the honesty of the ± symbol.</p>
+        <a class="read" href="#observations" aria-label="Read: On tolerances">Read — 8 min</a>
+      </div>
+    </article>
+    <svg class="hamon" viewBox="0 0 800 21" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 C 40 17, 70 5, 110 12 S 180 18 220 9 S 300 4 340 13 S 420 17 460 8 S 540 5 580 14 S 660 17 700 9 L 800 12"/></svg>
+
+    <article class="essay reveal">
+      <div class="essay-meta">
+        <span class="seal" aria-hidden="true">心</span>
+        <span class="when">May 2026<br>Field note</span>
+      </div>
+      <div>
+        <h3>Zanshin, or the follow-through</h3>
+        <p>In swordsmanship the cut is not finished when the blade stops — zanshin is the awareness that remains after the action. On shipping software, and the attention that must outlast the release.</p>
+        <a class="read" href="#observations" aria-label="Read: Zanshin, or the follow-through">Read — 7 min</a>
+      </div>
+    </article>
+    <svg class="hamon" viewBox="0 0 800 21" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12 C 35 5, 65 16, 100 10 S 170 4 210 13 S 290 18 330 8 S 400 4 440 14 S 520 18 560 7 S 640 5 680 13 L 800 10"/></svg>
+
+    <article class="essay reveal">
+      <div class="essay-meta">
+        <span class="seal" aria-hidden="true">響</span>
+        <span class="when">Mar 2026<br>Field note</span>
+      </div>
+      <div>
+        <h3>Everything has a natural frequency</h3>
+        <p>Strike a structure and it answers in its own voice — a superposition of the shapes it prefers. On resonance in beams, in teams, and in the cadence of good work.</p>
+        <a class="read" href="#observations" aria-label="Read: Everything has a natural frequency">Read — 7 min</a>
+      </div>
+    </article>
+    <svg class="hamon" viewBox="0 0 800 21" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 C 45 16, 80 6, 120 12 S 190 17 230 9 S 310 4 350 13 S 430 18 470 8 S 550 4 590 13 S 670 16 710 9 L 800 12"/></svg>
+
+    <article class="essay reveal">
+      <div class="essay-meta">
+        <span class="seal" aria-hidden="true">鍛</span>
+        <span class="when">Feb 2026<br>Essay</span>
+      </div>
+      <div>
+        <h3>The hamon is a phase diagram</h3>
+        <p>A polisher can read a blade's entire heat treatment in one wavy line of crystal — the temper line is metallurgy made visible. On differential hardening, honest materials, and interfaces that show their tempering.</p>
+        <a class="read" href="#observations" aria-label="Read: The hamon is a phase diagram">Read — 10 min</a>
+      </div>
+    </article>
+    <svg class="hamon" viewBox="0 0 800 21" preserveAspectRatio="none" aria-hidden="true"><path d="M0 13 C 30 6, 60 17, 95 11 S 160 5 200 13 S 275 18 315 8 S 385 4 425 14 S 500 17 540 7 S 615 5 655 13 S 730 17 770 10 L 800 11"/></svg>
+
+    <article class="essay reveal">
+      <div class="essay-meta">
+        <span class="seal" aria-hidden="true">器</span>
+        <span class="when">Nov 2025<br>Essay</span>
+      </div>
+      <div>
+        <h3>Instruments, not decorations</h3>
+        <p>A working theory of visualization: if a chart cannot be wrong, it is not saying anything. Notes from a year of building screens for people whose decisions carry weight.</p>
+        <a class="read" href="#observations" aria-label="Read: Instruments, not decorations">Read — 12 min</a>
+      </div>
+    </article>
+    <svg class="hamon" viewBox="0 0 800 21" preserveAspectRatio="none" aria-hidden="true"><path d="M0 11 C 40 17, 75 6, 115 12 S 185 17 225 8 S 300 4 340 13 S 415 18 455 9 S 530 5 570 14 S 645 17 685 8 L 800 12"/></svg>
+
+    <article class="essay reveal">
+      <div class="essay-meta">
+        <span class="seal" aria-hidden="true">色</span>
+        <span class="when">Jul 2025<br>Field note</span>
+      </div>
+      <div>
+        <h3>Why the rainbow colormap lies</h3>
+        <p>Jet made a generation of stress plots look dramatic and read wrong. On perceptual uniformity, the ethics of gradients, and choosing colors the way you choose units.</p>
+        <a class="read" href="#observations" aria-label="Read: Why the rainbow colormap lies">Read — 6 min</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ——————————— CONTACT ——————————— -->
+<footer id="contact">
+  <div class="shell">
+    <p class="kicker reveal">Contact / Open channel</p>
+    <div class="reveal">
+      <button class="email" id="emailBtn" title="Click to copy">hello@siddhartha.cc</button>
+      <span class="copied" id="copied">Copied</span>
+    </div>
+    <div class="foot-row reveal">
+      <span class="sig"><span class="seal" aria-hidden="true">匠</span><em>Siddhartha</em> — creative developer</span>
+      <span>© 2026 · Set in the golden ratio</span>
+      <span><a href="index.html">Return to the workshop ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const io = new IntersectionObserver(entries => {
+    for(const e of entries){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    }
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const emailBtn = document.getElementById('emailBtn');
+  const copied = document.getElementById('copied');
+  emailBtn.addEventListener('click', async () => {
+    try{
+      await navigator.clipboard.writeText('hello@siddhartha.cc');
+      copied.classList.add('show');
+      setTimeout(() => copied.classList.remove('show'), 2000);
+    }catch(e){
+      location.href = 'mailto:hello@siddhartha.cc';
+    }
+  });
+})();
+</script>
+</body>
+</html>
