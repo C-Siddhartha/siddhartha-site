@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Contact — the observatory · Siddhartha</title>
+<meta name="description" content="Open a channel with Siddhartha — hello@siddhartha.cc. The backdrop bends actual geodesics: light integrated through curved spacetime, live in your browser.">
+<link rel="canonical" href="https://siddhartha.cc/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://siddhartha.cc/contact.html">
+<meta property="og:site_name" content="Siddhartha">
+<meta property="og:title" content="Contact Siddhartha — the observatory">
+<meta property="og:description" content="hello@siddhartha.cc — the channel is open. The backdrop is a live gravitational-lensing render, not a video.">
+<meta property="og:image" content="https://siddhartha.cc/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Siddhartha — the observatory">
+<meta name="twitter:image" content="https://siddhartha.cc/og.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='30' fill='none' stroke='%23F2A33C' stroke-width='6'/><circle cx='50' cy='50' r='12' fill='%23000'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --phi:1.618; --black:#000000; --white:#F5F3EE;
+  --white-dim:rgba(245,243,238,0.55); --white-faint:rgba(245,243,238,0.28);
+  --accent:#F2A33C; --accent-bright:#FFC46B; --accent-deep:#8C4A17; --ember:#DD513A;
+  --line:rgba(242,163,60,0.20); --line-strong:rgba(242,163,60,0.45);
+  --fs-0:0.6875rem; --fs-1:1.125rem; --fs-2:1.8125rem; --fs-4:4.75rem;
+  --s-1:8px; --s-2:13px; --s-3:21px; --s-4:34px; --s-5:55px; --s-6:89px;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',-apple-system,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',monospace;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+}
+html,body{height:100%}
+body{
+  background:var(--black); color:var(--white);
+  font-family:var(--sans); font-weight:300; font-size:var(--fs-1);
+  line-height:var(--phi); overflow:hidden; -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--accent);color:var(--black)}
+a{color:inherit;text-decoration:none}
+#sim{position:fixed;inset:0;width:100vw;height:100vh;height:100svh;display:block;z-index:0;
+  opacity:0;transition:opacity 2.6s var(--ease)}
+#sim.live{opacity:1}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:var(--s-4) var(--s-5);
+  background:linear-gradient(to bottom,rgba(0,0,0,0.75),rgba(0,0,0,0));
+}
+.wordmark{font-family:var(--serif);font-weight:400;font-style:italic;font-size:var(--fs-2);color:var(--white)}
+.wordmark em{color:var(--accent);font-style:italic}
+nav ul{list-style:none;display:flex;gap:var(--s-5)}
+nav ul a{
+  font-family:var(--mono);font-size:var(--fs-0);letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--white-dim);position:relative;padding:10px 0 10px;transition:color .4s var(--ease);
+}
+nav ul a::after{content:'';position:absolute;left:0;bottom:4px;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+nav ul a:hover,nav ul a.here{color:var(--accent-bright)}
+nav ul a:hover::after,nav ul a.here::after{transform:scaleX(1);transform-origin:left}
+
+/* channel content — anchored at the golden section */
+.channel{
+  position:fixed;left:var(--s-5);right:var(--s-5);top:61.8%;
+  transform:translateY(-100%);z-index:2;
+  opacity:0;transition:opacity 1.8s var(--ease) 0.6s;
+}
+.channel.live{opacity:1}
+.channel .kicker{
+  font-family:var(--mono);font-size:var(--fs-0);letter-spacing:0.32em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:var(--s-3);
+}
+.email{
+  font-family:var(--serif);font-weight:300;font-style:italic;
+  font-size:clamp(1.8rem,6.4vw,var(--fs-4));line-height:1.1;
+  color:var(--white);display:inline-block;position:relative;
+  cursor:pointer;background:none;border:0;padding:0 0 var(--s-2);
+  transition:color .5s var(--ease);text-align:left;
+}
+.email::after{
+  content:'';position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;
+  transition:transform .7s var(--ease);
+}
+.email:hover{color:var(--accent-bright)}
+.email:hover::after{transform:scaleX(1);transform-origin:left}
+.email:focus-visible{outline:1px solid var(--accent);outline-offset:8px}
+.copied{
+  font-family:var(--mono);font-size:var(--fs-0);letter-spacing:0.22em;
+  color:var(--accent);text-transform:uppercase;margin-left:var(--s-3);
+  opacity:0;transition:opacity .4s var(--ease);
+}
+.copied.show{opacity:1}
+.channel .sub{margin-top:var(--s-3);max-width:44ch;color:var(--white-dim)}
+.links{
+  display:flex;gap:var(--s-5);margin-top:var(--s-4);flex-wrap:wrap;
+  font-family:var(--mono);font-size:var(--fs-0);letter-spacing:0.22em;text-transform:uppercase;
+}
+.links a{color:var(--white-faint);position:relative;padding:8px 0 12px;transition:color .4s var(--ease)}
+.links a::after{content:'';position:absolute;left:0;bottom:8px;height:1px;width:100%;
+  background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.links a:hover{color:var(--accent-bright)}
+.links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+.hud{position:fixed;z-index:2;font-family:var(--mono);font-size:var(--fs-0);letter-spacing:0.16em;
+  color:rgba(245,243,238,0.20);text-transform:uppercase;line-height:2;opacity:0.55}
+.hud b{color:rgba(242,163,60,0.6);font-weight:400}
+.hud-bl{bottom:calc(var(--s-4) + env(safe-area-inset-bottom,0px));left:var(--s-5)}
+.hud-br{bottom:calc(var(--s-4) + env(safe-area-inset-bottom,0px));right:var(--s-5);text-align:right}
+
+@media (max-width:900px){
+  nav{padding:calc(var(--s-2) + env(safe-area-inset-top,0px)) var(--s-3) var(--s-2);
+    background:linear-gradient(to bottom,rgba(0,0,0,0.9) 60%,rgba(0,0,0,0))}
+  nav ul{gap:var(--s-3)} .wordmark{font-size:1.35rem}
+  .channel{left:var(--s-3);right:var(--s-3);top:58%}
+  .hud-bl{left:var(--s-3)} .hud-br{display:none}
+  .links{gap:var(--s-4)}
+}
+</style>
+</head>
+<body>
+
+<canvas id="sim" aria-hidden="true"></canvas>
+
+<nav>
+  <a class="wordmark" href="index.html">Siddhartha<em>.</em></a>
+  <ul>
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="personal.html">Personal</a></li>
+    <li><a class="here" href="#" aria-current="page">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="channel" id="channel">
+  <p class="kicker">Contact / The observatory — channel open</p>
+  <div>
+    <button class="email" id="emailBtn" title="Click to copy">hello@siddhartha.cc</button>
+    <span class="copied" id="copied">Copied</span>
+  </div>
+  <p class="sub">For commissions, collaborations, writing, or questions about how anything on this site works. The horizon behind this text is bending actual geodesics — your message only has to cross the internet.</p>
+  <div class="links">
+    <a href="mailto:hello@siddhartha.cc">Write ↗</a>
+    <a href="https://github.com/C-Siddhartha" target="_blank" rel="noopener">GitHub ↗</a>
+    <a href="index.html">← Return to the workshop</a>
+  </div>
+</div>
+
+<div class="hud hud-bl" aria-hidden="true">
+  metric <b>schwarzschild approx.</b> · integrator <b>rk-lite</b><br>
+  t+ <b id="hudTime">00:00.0</b> · <b id="hudFps">—</b> fps · res <b id="hudRes">1.00</b>
+</div>
+<div class="hud hud-br" aria-hidden="true">
+  signal <b>1.00</b> · lensing <b>live</b>
+</div>
+
+<script>
+/* THE OBSERVATORY — null geodesics integrated per-fragment
+   (F = −3/2·h²·r̂/r⁴, conserved angular momentum), thin
+   Keplerian accretion disk with Doppler beaming, lensed
+   starfield. Retinted to the site's amber system. */
+(() => {
+  const canvas = document.getElementById('sim');
+  const gl = canvas.getContext('webgl', { antialias:false, alpha:false, powerPreference:'high-performance' });
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveal = () => {
+    canvas.classList.add('live');
+    document.getElementById('channel').classList.add('live');
+  };
+  if(!gl){ reveal(); return; }
+
+  const VERT = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+  const FRAG = `
+    precision highp float;
+    uniform vec2 uRes;
+    uniform float uTime, uSteps;
+    uniform vec2 uMouse;
+    float hash(vec3 p){
+      p = fract(p * 0.3183099 + vec3(0.1, 0.2, 0.3));
+      p *= 17.0;
+      return fract(p.x * p.y * p.z * (p.x + p.y + p.z));
+    }
+    float noise(vec3 p){
+      vec3 i = floor(p), f = fract(p);
+      f = f * f * (3.0 - 2.0 * f);
+      return mix(
+        mix(mix(hash(i+vec3(0,0,0)), hash(i+vec3(1,0,0)), f.x),
+            mix(hash(i+vec3(0,1,0)), hash(i+vec3(1,1,0)), f.x), f.y),
+        mix(mix(hash(i+vec3(0,0,1)), hash(i+vec3(1,0,1)), f.x),
+            mix(hash(i+vec3(0,1,1)), hash(i+vec3(1,1,1)), f.x), f.y), f.z);
+    }
+    float fbm(vec3 p){
+      float v = 0.0, a = 0.5;
+      for(int i = 0; i < 4; i++){ v += a * noise(p); p *= 2.03; a *= 0.5; }
+      return v;
+    }
+    vec3 grade(float t){
+      vec3 deep   = vec3(0.40, 0.26, 0.08);
+      vec3 amber  = vec3(0.95, 0.64, 0.24);
+      vec3 bright = vec3(1.00, 0.86, 0.55);
+      vec3 hot    = vec3(1.00, 0.98, 0.93);
+      vec3 c = mix(deep, amber, smoothstep(0.0, 0.35, t));
+      c = mix(c, bright, smoothstep(0.3, 0.7, t));
+      c = mix(c, hot,    smoothstep(0.65, 1.0, t));
+      return c;
+    }
+    vec3 stars(vec3 d){
+      vec3 col = vec3(0.0);
+      for(int layer = 0; layer < 2; layer++){
+        float scale = layer == 0 ? 140.0 : 320.0;
+        vec3 p = d * scale;
+        vec3 id = floor(p);
+        vec3 f  = fract(p) - 0.5;
+        float h = hash(id);
+        if(h > 0.9962){
+          float m = smoothstep(0.4, 0.0, length(f));
+          float tw = 0.75 + 0.25 * sin(uTime * (1.0 + h * 3.0) + h * 40.0);
+          col += m * m * (h - 0.9962) * 240.0 * tw * vec3(0.92, 0.90, 0.85);
+        }
+      }
+      return col * 0.5;
+    }
+    vec3 disk(vec3 hp, vec3 rd, float rIn, float rOut){
+      float r = length(hp.xz);
+      if(r < rIn || r > rOut) return vec3(0.0);
+      float omega = 1.9 * pow(r, -1.5);
+      float ang = atan(hp.z, hp.x) + uTime * omega;
+      vec3 q = vec3(cos(ang), sin(ang), 0.0) * (r * 0.85);
+      q.z = r * 1.3 - uTime * 0.15;
+      float turb = pow(fbm(q * 2.2 + fbm(q * 4.1)), 1.6);
+      float temp = pow(rIn / r, 0.75);
+      float edge = smoothstep(rIn, rIn * 1.28, r) * smoothstep(rOut, rOut * 0.62, r);
+      float beta = 0.52 / sqrt(r * 0.5);
+      vec3 tangent = normalize(vec3(-hp.z, 0.0, hp.x));
+      float dop = 1.0 / (1.0 - beta * dot(tangent, -normalize(rd)));
+      float I = temp * edge * (0.35 + 1.3 * turb) * dop * dop * dop;
+      return grade(clamp(I * 0.75, 0.0, 1.0)) * I;
+    }
+    void main(){
+      vec2 uv = (gl_FragCoord.xy * 2.0 - uRes) / uRes.y;
+      float yaw = uMouse.x * 0.30 + sin(uTime * 0.02) * 0.05;
+      float pitch = 0.16 + uMouse.y * 0.10;
+      float rad = 15.0;
+      vec3 ro = vec3(rad * cos(pitch) * sin(yaw),
+                     rad * sin(pitch),
+                    -rad * cos(pitch) * cos(yaw));
+      vec3 fw = normalize(-ro);
+      vec3 rt = normalize(cross(fw, vec3(0.0, 1.0, 0.0)));
+      vec3 up = cross(rt, fw);
+      vec3 rd = normalize(uv.x * rt + uv.y * up + 1.7 * fw);
+      vec3 pos = ro;
+      vec3 vel = rd;
+      vec3 hv = cross(pos, vel);
+      float h2 = dot(hv, hv);
+      vec3 col = vec3(0.0);
+      float captured = 0.0;
+      const float R_IN = 2.6;
+      const float R_OUT = 8.2;
+      for(int i = 0; i < 320; i++){
+        if(float(i) >= uSteps) break;
+        float r2 = dot(pos, pos);
+        float r = sqrt(r2);
+        float dt = clamp(r * 0.09, 0.045, 0.42);
+        vel += -1.5 * h2 * pos / (r2 * r2 * r) * dt;
+        vec3 npos = pos + vel * dt;
+        if(pos.y * npos.y < 0.0){
+          float t = pos.y / (pos.y - npos.y);
+          vec3 hp = mix(pos, npos, t);
+          col += disk(hp, vel, R_IN, R_OUT) * 0.55;
+        }
+        pos = npos;
+        if(r < 1.02){ captured = 1.0; break; }
+        if(r2 > 700.0) break;
+      }
+      if(captured < 0.5) col += stars(normalize(vel));
+      col = 1.0 - exp(-col * 2.4);
+      col = pow(col, vec3(0.92, 0.96, 1.05));
+      float vig = 1.0 - 0.32 * dot(uv * 0.55, uv * 0.55);
+      col *= vig;
+      col += (hash(vec3(gl_FragCoord.xy, fract(uTime))) - 0.5) * 0.012;
+      gl_FragColor = vec4(max(col, 0.0), 1.0);
+    }`;
+
+  function compile(type, src){
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    if(!gl.getShaderParameter(s, gl.COMPILE_STATUS)){
+      console.error(gl.getShaderInfoLog(s));
+      return null;
+    }
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(prog, 'p');
+  gl.enableVertexAttribArray(loc);
+  gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = {
+    res:   gl.getUniformLocation(prog, 'uRes'),
+    time:  gl.getUniformLocation(prog, 'uTime'),
+    mouse: gl.getUniformLocation(prog, 'uMouse'),
+    steps: gl.getUniformLocation(prog, 'uSteps'),
+  };
+
+  const mobile = Math.min(innerWidth, innerHeight) < 700;
+  let resScale = mobile ? 0.6 : 0.85;
+  let steps = mobile ? 170 : 260;
+  let frameCost = 16;
+
+  function resize(){
+    const dpr = Math.min(devicePixelRatio || 1, 1.5);
+    canvas.width  = Math.round(innerWidth  * dpr * resScale);
+    canvas.height = Math.round(innerHeight * dpr * resScale);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  resize();
+  addEventListener('resize', resize);
+
+  let mx = 0, my = 0, smx = 0, smy = 0;
+  addEventListener('pointermove', e => {
+    mx = (e.clientX / innerWidth)  * 2 - 1;
+    my = (e.clientY / innerHeight) * 2 - 1;
+  }, { passive:true });
+
+  const hudTime = document.getElementById('hudTime');
+  const hudFps  = document.getElementById('hudFps');
+  const hudRes  = document.getElementById('hudRes');
+  let start = performance.now(), last = start, running = true, frames = 0, fpsAccum = 0;
+
+  document.addEventListener('visibilitychange', () => {
+    running = !document.hidden && !reduced;
+    if(running){ last = performance.now(); requestAnimationFrame(loop); }
+  });
+
+  function loop(now){
+    if(!running) return;
+    const dtms = now - last; last = now;
+    frameCost = frameCost * 0.92 + dtms * 0.08;
+    if(frameCost > 22 && resScale > 0.45){ resScale -= 0.05; resize(); frameCost = 16; }
+    else if(frameCost > 26 && steps > 130){ steps -= 20; frameCost = 16; }
+    else if(frameCost < 12 && resScale < (mobile ? 0.7 : 1.0)){ resScale += 0.02; resize(); }
+
+    smx += (mx - smx) * 0.035;
+    smy += (my - smy) * 0.035;
+    const t = reduced ? 12.0 : (now - start) / 1000;
+    gl.uniform2f(U.res, canvas.width, canvas.height);
+    gl.uniform1f(U.time, t);
+    gl.uniform2f(U.mouse, reduced ? 0 : smx, reduced ? 0 : smy);
+    gl.uniform1f(U.steps, steps);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+    frames++; fpsAccum += dtms;
+    if(fpsAccum > 500){
+      hudFps.textContent = Math.round(1000 / (fpsAccum / frames));
+      hudRes.textContent = resScale.toFixed(2);
+      frames = 0; fpsAccum = 0;
+    }
+    const el = (now - start) / 1000;
+    hudTime.textContent = String(Math.floor(el / 60)).padStart(2,'0') + ':' + (el % 60).toFixed(1).padStart(4,'0');
+
+    if(reduced){ running = false; return; }
+    requestAnimationFrame(loop);
+  }
+
+  requestAnimationFrame(now => {
+    last = now;
+    loop(now);
+    reveal();
+  });
+})();
+
+/* copy email */
+(() => {
+  const emailBtn = document.getElementById('emailBtn');
+  const copied = document.getElementById('copied');
+  emailBtn.addEventListener('click', async () => {
+    try{
+      await navigator.clipboard.writeText('hello@siddhartha.cc');
+      copied.classList.add('show');
+      setTimeout(() => copied.classList.remove('show'), 2000);
+    }catch(e){
+      location.href = 'mailto:hello@siddhartha.cc';
+    }
+  });
+})();
+</script>
+</body>
+</html>

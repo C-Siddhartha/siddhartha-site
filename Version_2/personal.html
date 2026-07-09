@@ -2,22 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siddhartha — Personal / Observations</title>
 <meta name="description" content="Observations, articles, and long-form writing by Siddhartha — on craft, precision, and practice.">
-<link rel="canonical" href="https://siddhartha.cc/personal.html">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://siddhartha.cc/personal.html">
-<meta property="og:site_name" content="Siddhartha">
-<meta property="og:title" content="Siddhartha — Personal / Observations">
-<meta property="og:description" content="Notes from the test bench: on tolerances, natural frequencies, the hamon line, and why the rainbow colormap lies.">
-<meta property="og:image" content="https://siddhartha.cc/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Siddhartha — Personal / Observations">
-<meta name="twitter:image" content="https://siddhartha.cc/og.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='22' y='22' width='56' height='56' fill='none' stroke='%23F2A33C' stroke-width='6'/><text x='50' y='66' font-size='40' text-anchor='middle' fill='%23F2A33C'>匠</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,7 +101,7 @@ nav ul a:focus-visible{ outline:1px solid var(--accent); outline-offset:4px; }
 
 /* ————— Hero / reading room entrance ————— */
 .hero{
-  min-height:70vh; min-height:70svh; position:relative;
+  min-height:70vh; position:relative;
   display:flex; align-items:flex-end;
   padding:var(--s-8) var(--s-5) var(--s-6);
   max-width:var(--maxw); margin:0 auto;
@@ -272,59 +259,18 @@ footer .kicker{
 .foot-row .sig em{ color:var(--accent); }
 .foot-row .sig .seal{ width:34px; height:34px; font-size:1rem; }
 
-/* ————— Responsive / touch ————— */
-nav ul a{ padding-top:10px; padding-bottom:10px; }
-.essay .read{ padding-top:8px; }
-.email{ min-height:44px; }
-
-/* touch: seals press on tap, read links stay visible */
-@media (hover:none){
-  .essay:active .seal{
-    transform:scale(0.94) rotate(-2deg);
-    border-color:var(--accent);
-    background:rgba(242,163,60,0.10);
-    color:var(--accent-bright);
-  }
-}
-
+/* ————— Responsive ————— */
 @media (max-width: 900px){
-  :root{ --fs-3: 2.2rem; --fs-2: 1.5rem; --fs-1: 1.0625rem; }
-  nav{
-    padding:calc(var(--s-2) + env(safe-area-inset-top, 0px)) var(--s-3) var(--s-2);
-    background:linear-gradient(to bottom, rgba(0,0,0,0.92) 60%, rgba(0,0,0,0));
-  }
+  :root{ --fs-3: 2.2rem; --fs-2: 1.5rem; }
+  nav{ padding:var(--s-3) var(--s-3); }
   nav ul{ gap:var(--s-3); }
-  .wordmark{ font-size:1.35rem; }
   .shell{ padding:0 var(--s-3); }
-  section{ padding:var(--s-5) 0 var(--s-7); }
-  .hero{
-    flex-direction:column; align-items:flex-start;
-    padding:calc(var(--s-7) + env(safe-area-inset-top, 0px)) var(--s-3) var(--s-5);
-    min-height:0;
-  }
+  .hero{ padding:var(--s-8) var(--s-3) var(--s-5); }
   .hero-copy{ max-width:100%; }
-  /* the kakemono folds into a horizontal strip below the copy */
-  .kakemono{
-    position:static; transform:none;
-    flex-direction:row; align-items:center; gap:var(--s-3);
-    margin-top:var(--s-5);
-  }
-  .kakemono .glyphs{
-    writing-mode:horizontal-tb; text-orientation:mixed;
-    font-size:1.8rem; letter-spacing:0.3em; line-height:1.2;
-  }
-  .kakemono .caption{ text-align:left; max-width:none; }
-  .kakemono::before, .kakemono::after{
-    width:21px; height:1px;
-  }
-  .kakemono::before{ background:linear-gradient(to right, transparent, var(--line-strong)); }
-  .kakemono::after{ background:linear-gradient(to right, var(--line-strong), transparent); }
+  .kakemono{ display:none; }
   .sec-head, .essay{ grid-template-columns:1fr; }
   .sec-head .kicker{ margin-bottom:var(--s-2); }
-  .essay{ padding:var(--s-4) 0; }
-  .essay-meta{ margin-bottom:var(--s-3); align-items:center; }
-  .seal{ width:44px; height:44px; font-size:1.2rem; }
-  footer{ padding-bottom:calc(var(--s-4) + env(safe-area-inset-bottom, 0px)); }
+  .essay-meta{ margin-bottom:var(--s-3); }
 }
 </style>
 </head>
@@ -335,7 +281,7 @@ nav ul a{ padding-top:10px; padding-bottom:10px; }
   <ul>
     <li><a href="index.html#work">Work</a></li>
     <li><a class="here" href="#" aria-current="page">Personal</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 

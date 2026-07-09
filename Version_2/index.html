@@ -1,60 +1,11 @@
-      <div class="work-grid">
-        <a class="card reveal" href="vortex.html" aria-label="Open case study: Vortex, a Navier–Stokes solver for the browser">
-          <div class="sheet-head"><span class="id">CS-001</span><span>Computational fluid dynamics</span></div>
-          <div>
-            <h3>Vortex — a Navier–Stokes solver for the browser</h3>
-            <p>Incompressible flow with semi-Lagrangian advection, Jacobi pressure projection, and vorticity confinement — shedding a live Kármán street off a bluff body at 60 fps. The case study runs the solver behind its own write-up.</p>
-          </div>
-          <div class="title-block"><span>WebGL · GLSL · 2026</span><span class="go always">Open case study →</span></div>
-        </a>
-
-        <article class="card reveal">
-          <div class="sheet-head"><span class="id">CS-002</span><span>Structural simulation</span></div>
-          <div>
-            <h3>Millwright — the beam solver running above</h3>
-            <p>Euler–Bernoulli deformation and modal superposition evaluated per-vertex on the GPU, with a perceptually uniform stress field. It is the hero of this page — scroll up, steer the load, tap to release.</p>
-          </div>
-          <div class="title-block"><span>GLSL · Three.js · 2026</span><span class="go">Live overhead ↑</span></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="sheet-head"><span class="id">CS-003</span><span>Structural telemetry</span></div>
-          <div>
-            <h3>Caisson — health monitoring for long-span bridges</h3>
-            <p>Strain, accelerometer, and wind data from four hundred sensors, legible at a glance. The interface treats an anomaly the way an inspector would: quietly, precisely, raw trace one click away.</p>
-          </div>
-          <div class="title-block"><span>React · Canvas 2D · 2025</span><span class="go">Notes in writing</span></div>
-        </article>
-
-        <article class="card reveal">
-          <div class="sheet-head"><span class="id">CS-004</span><span>Thermal simulation</span></div>
-          <div>
-            <h3>Anneal — residual stress in additive manufacturing</h3>
-            <p>A layer-by-layer thermal history explorer for metal printing. Scrub through the build, watch gradients form, and see where distortion will arrive before the machine does.</p>
-          </div>
-          <div class="title-block"><span>CUDA · Vulkan · 2024</span><span class="go">Notes in writing</span></div>
-        </article>
-      </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<title>Siddhartha — Creative Developer</title>
+<title>Siddhartha</title>
 <meta name="description" content="Portfolio and observations of Siddhartha — structural simulation, computational design, and long-form writing.">
-<link rel="canonical" href="https://siddhartha.cc/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://siddhartha.cc/">
-<meta property="og:site_name" content="Siddhartha">
-<meta property="og:title" content="Siddhartha — Creative Developer">
-<meta property="og:description" content="Physics you can touch: a live structural solver, a real-time Navier–Stokes wake, and a rendered event horizon. Everything on this site is being solved as you read.">
-<meta property="og:image" content="https://siddhartha.cc/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Siddhartha — Creative Developer">
-<meta name="twitter:description" content="Physics you can touch. Everything on this site runs live in your browser.">
-<meta name="twitter:image" content="https://siddhartha.cc/og.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M20 30 h60 v14 h-60z' fill='none' stroke='%23F2A33C' stroke-width='6'/><path d='M20 22 v30' stroke='%23F2A33C' stroke-width='6'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -417,40 +368,6 @@ footer .kicker{
 }
 .foot-row .sig em{ color:var(--accent); }
 
-/* ————— Now / About ————— */
-#now{ padding:var(--s-7) 0 0; }
-#now .sec-head{ border-bottom:0; margin-bottom:0; align-items:start; }
-#now h2{ max-width:20ch; }
-#now .statement{
-  color:var(--white-dim); max-width:58ch; margin-top:var(--s-3);
-}
-#now .statement strong{ color:var(--white); font-weight:400; }
-#now .now-line{
-  margin-top:var(--s-4);
-  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.14em;
-  text-transform:uppercase; color:var(--white-faint); line-height:2.2;
-}
-#now .now-line b{ color:var(--accent); font-weight:400; }
-
-/* linked case-study card */
-a.card{ color:inherit; }
-.card .go.always{ opacity:1; transform:none; }
-
-/* observatory link in footer */
-.alt-channel{ margin-top:var(--s-4); }
-.alt-channel a{
-  font-family:var(--mono); font-size:var(--fs-0); letter-spacing:0.2em;
-  text-transform:uppercase; color:var(--white-faint);
-  position:relative; padding-bottom:4px; transition:color 0.4s var(--ease);
-}
-.alt-channel a::after{
-  content:''; position:absolute; left:0; bottom:0; height:1px; width:100%;
-  background:var(--accent); transform:scaleX(0); transform-origin:right;
-  transition:transform 0.5s var(--ease);
-}
-.alt-channel a:hover{ color:var(--accent-bright); }
-.alt-channel a:hover::after{ transform:scaleX(1); transform-origin:left; }
-
 /* ————— Responsive / touch ————— */
 /* comfortable tap targets everywhere */
 nav ul a{ padding-top:10px; padding-bottom:10px; }
@@ -532,7 +449,7 @@ nav ul a{ padding-top:10px; padding-bottom:10px; }
   <ul>
     <li><a href="#work">Work</a></li>
     <li><a href="personal.html">Personal</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -546,7 +463,7 @@ nav ul a{ padding-top:10px; padding-bottom:10px; }
       def. scale <b>×15</b> · playback <b>×0.045</b>
     </div>
     <div class="hero-inner" id="heroInner">
-      <p class="eyebrow">Creative Developer — Simulation &amp; Interface Engineering</p>
+      <p class="eyebrow">Siddhartha - Structural Simulation & Computational Design</p>
     </div>
     <div class="hud touch-hint" aria-hidden="true">drag → steer the load · tap → release &amp; ring down</div>
     <div class="hud hud-bl" aria-hidden="true">
@@ -558,20 +475,6 @@ nav ul a{ padding-top:10px; padding-bottom:10px; }
       <span class="scroll-cue">descend <span class="tick"></span></span>
     </div>
   </header>
-
-  <!-- ——————————— NOW / ABOUT ——————————— -->
-  <section id="now">
-    <div class="shell">
-      <div class="sec-head reveal">
-        <p class="kicker">Now / About</p>
-        <div>
-          <h2>I build physics you can <em>touch</em>.</h2>
-          <p class="statement">Siddhartha — creative developer working where simulation meets interface. <strong>Everything on this site runs live in your browser:</strong> the beam above is being solved as you read, the wake on the Vortex page is shedding real vortices, and the horizon on the contact page bends actual geodesics. No videos, no mockups. If I claim it, it runs.</p>
-          <p class="now-line">Now · <b>Jul 2026</b> — shipping a WebGPU FEA post-processor · tuning these solvers on a five-year-old phone · reading J.E. Gordon's <b>Structures</b></p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ——————————— WORK ——————————— -->
   <section id="work">
@@ -630,10 +533,9 @@ nav ul a{ padding-top:10px; padding-bottom:10px; }
     <div class="reveal">
       <button class="email" id="emailBtn" title="Click to copy">hello@siddhartha.cc</button>
       <span class="copied" id="copied">Copied</span>
-      <p class="alt-channel"><a href="contact.html">Prefer a view with your signal? Enter the observatory →</a></p>
     </div>
     <div class="foot-row reveal">
-      <span class="sig"><em>Siddhartha</em> — creative developer</span>
+      <span class="sig">Siddhartha</span>
       <span>© 2026 · Set in the golden ratio</span>
       <span><a href="#top">Return to support ↑</a></span>
     </div>
