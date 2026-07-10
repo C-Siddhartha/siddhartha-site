@@ -80,7 +80,7 @@ nav ul a:hover::after,nav ul a.here::after{transform:scaleX(1);transform-origin:
 }
 .email{
   font-family:var(--serif);font-weight:300;font-style:italic;
-  font-size:clamp(1.8rem,6.4vw,var(--fs-4));line-height:1.1;
+  font-size:clamp(1.8rem,6.4vw,var(--fs-1));line-height:1.1;
   color:var(--white);display:inline-block;position:relative;
   cursor:pointer;background:none;border:0;padding:0 0 var(--s-2);
   transition:color .5s var(--ease);text-align:left;
@@ -99,7 +99,7 @@ nav ul a:hover::after,nav ul a.here::after{transform:scaleX(1);transform-origin:
   opacity:0;transition:opacity .4s var(--ease);
 }
 .copied.show{opacity:1}
-.channel .sub{margin-top:var(--s-3);max-width:44ch;color:var(--white-dim)}
+.channel .sub{margin-top:var(--s-1);max-width:44ch;color:var(--white-dim);font-size:0.8rem;   /* ← add this line */}
 .links{
   display:flex;gap:var(--s-5);margin-top:var(--s-4);flex-wrap:wrap;
   font-family:var(--mono);font-size:var(--fs-0);letter-spacing:0.22em;text-transform:uppercase;
@@ -145,7 +145,7 @@ nav ul a:hover::after,nav ul a.here::after{transform:scaleX(1);transform-origin:
     <button class="email" id="emailBtn" title="Click to copy">hello@siddhartha.cc</button>
     <span class="copied" id="copied">Copied</span>
   </div>
-  <p class="sub">For commissions, collaborations, writing, or questions about how anything on this site works. The horizon behind this text is bending actual geodesics — your message only has to cross the internet.</p>
+  <p class="sub">Hey you can reach out anytime. The horizon behind this text is bending actual geodesics - your message only has to cross the internet.</p>
   <div class="links">
     <a href="mailto:hello@siddhartha.cc">Write ↗</a>
     <a href="https://github.com/C-Siddhartha" target="_blank" rel="noopener">GitHub ↗</a>
